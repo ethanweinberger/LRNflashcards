@@ -1,0 +1,46 @@
+{% extends 'flashcard_app/base.html' %}
+{% load static %}
+{% block title %}Test{% endblock %}
+{% block head_block %}
+
+    <script src="{% static 'js/practice.js' %}"></script>
+    <link href = "{% static 'css/practice_flashcards.css' %}" rel = "stylesheet"/>
+
+{% endblock %}
+{% block body_block %}
+
+    <h1 id = "groupname">{{groupname}}</h1>
+        
+    <div id = "flashcard">
+
+        {% if side == 'front' %}
+        
+        <div id = "question">{{my_card.frontside}}</div>
+        <p id = "true_back" style = "display:none">{{my_card.backside}}</p>
+        <p id = "side" style = "display:none">{{side}}</p>
+        
+        {% elif side == 'back' %}
+        
+        <div id = "question">{{my_card.backside}}</div>
+        <p id = "true_back" style = "display:none">{{my_card.frontside}}</p>
+        <p id = "side" style = "display:none">{{side}}</p>
+        
+        {% endif %}
+
+    </div>
+
+    <br />
+
+    <form id="category_form" method = "POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        <input class = "form-control" id = "answer" type = "text" name = "text" autocomplete="off" autofocus/>
+        
+
+
+        <input class = "m-btn" id = "submit" type = "button" name = "submit" value = "Submit"/>
+        <input class = "m-btn" id = "continue" type = "button" name = "continue" value = "Continue"/>
+        
+    </form>
+{% endblock %}

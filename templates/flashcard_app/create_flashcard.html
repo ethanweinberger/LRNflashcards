@@ -1,0 +1,62 @@
+{% extends 'flashcard_app/base.html' %}
+{% block title %}Create Flashcard{% endblock %}
+
+{% load bootstrap3 %}
+{% load static %}
+
+{% block head_block %}
+
+<link href = "{% static 'css/create_flashcard.css' %}" rel = "stylesheet">
+<script src = "{% static 'js/create_flashcard.js' %}"></script>
+
+{% endblock %}
+
+{% block body_block %}
+
+    <h1>Create flashcards</h1>
+
+    <p id = "front_side" style = "display:none">{{group.front_side}}</p>
+    <p id = "back_side" style = "display:none">{{group.back_side}}</p>
+
+    <div class = "col-md-6">
+        
+        {% if failed %}
+            <p class = "error">Flashcard already exists!</p>
+        {% else %}
+            <p>&nbsp;</p>
+        {% endif %}
+        
+        <form id = "flashcard_form" method = "post" action = "/{{user.username}}/flashcards/create/{{groupname}}/"
+            enctype = "multipart/form-data">
+
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="control-label" for="id_frontside">{{group.front_side}}</label>
+                    <input class="form-control" id="id_frontside" maxlength="50" name="frontside" placeholder="Frontside" required="required" title="" type="text" />
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label" for="id_backside">{{group.back_side}}</label>
+                    <input class="form-control" id="id_backside" maxlength="50" name="backside" placeholder="Backside" required="required" title="" type="text" />
+            </div>
+            
+            <div class="form-group">
+
+                <button type="submit" class="m-btn" style="margin-top:-10px">
+                    Add Card
+                </button>
+
+            </div>
+    </div>
+    <div class = "col-md-6" id = "sidebar">
+
+        <div class = "row">
+            <a href = "/{{user}}/flashcards/view/{{groupname}}/ "class = "m-btn">View Set</a>
+        </div>
+        <div class = "row">
+            <a href = "/{{user}}/home" class = "m-btn">Home</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'flashcard_app/base.html' %}
+{% load static %}
+
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}Create group{% endblock %}
+{% block head_block %}
+
+<link href = "{% static 'css/create_flashcard_group.css' %}" rel = "stylesheet">
+<script src = "{% static 'js/create_flashcard_group.js' %}"></script>
+
+{% endblock %}
+{% block body_block %}
+
+<div class = "group_form">
+
+    <div class = "container">
+        
+        <br /><br /><br /><br /><br /><br /><br />
+    
+        <form id = "user_form" method = "post" action = ""
+        enctype = "multipart/form-data">
+
+        {% csrf_token %}
+        
+        {% bootstrap_form flashcard_group_form %}
+    
+        
+        {% buttons %}
+                    <button type="submit" class="m-btn">
+                        Submit
+                    </button>
+        {% endbuttons %}
+</form>
+    
+    </div>
+
+</div>
+
+
+{% endblock %}

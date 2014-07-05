@@ -1,0 +1,25 @@
+{% extends 'flashcard_app/base.html' %}
+
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}Login Successful!{% endblock %}
+
+{% block head_block%}
+
+<meta http-equiv="refresh" content="3;url=/login/" />
+<link href="{% static 'css/register.css' %}"rel="stylesheet">
+
+{% endblock %}
+
+{% block body_block %}
+    
+    <h1 style = "text-align:center">Registration successful!</h1>
+    <p style = "text-align:center">You will now be redirected to the login page...</p>
+
+
+{% endblock %}

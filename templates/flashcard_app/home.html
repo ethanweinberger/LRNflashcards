@@ -1,0 +1,27 @@
+{% extends 'flashcard_app/base.html' %}
+{% load static %}
+{% block title_block %}Home{% endblock %}
+{% block head_block %}
+
+<link href = "{% static 'css/home.css' %}" rel = "stylesheet">
+<script src = "{% static 'js/home.js' %}" rel = "stylehseet"></script>
+
+{% endblock %}
+{% block body_block %}
+
+    <h1>Hello {{user.username}}</h1>
+
+    <div id = "list" class = "col-md-6">
+        <h2>My Flashcard Sets</h2>
+        <div class = "antiscroll-wrap">
+            <ul id = "groups" class="nav antiscroll-inner">
+                {% for item in flashcard_group_list %}
+                    <li><div class = "m-btn-group"><a class = "m-btn groupname" href = "/{{user.username}}/flashcards/view/{{item.name}}">{{item.name}}</a><i class="m-btn red icn-only delete"><i class="icon-remove icon-white"></i></i></div></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div id = "sidebar" class = "col-md-6 center-block">
+        <a class = "m-btn"href = "/{{user.username}}/create_flashcard_group/">New Set</a>
+    </div>
+{% endblock %}

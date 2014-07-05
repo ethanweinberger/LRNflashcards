@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>{% block title %}Flashcards{% endblock %}</title>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/m-dropdown.js' %}"></script>
+        <script src="{% static 'js/m-radio.js' %}"></script>
+        <script src="{% static 'js/deps/jquery.js' %}"></script>
+        <script src="{% static 'js/deps/jquery-mousewheel.js' %}"></script>
+        <script src="{% static 'js/antiscroll.js' %}"></script>
+        <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet">
+        <link href = "{% static 'css/m-styles.min.css' %}"rel="stylesheet">
+        <link href = "{% static 'css/base.css' %}" rel = "stylesheet">
+        <link href = "{% static 'css/antiscroll.css' %}" rel = "stylesheet">
+        {% block head_block%}{% endblock %}
+    </head>
+    
+    <body>
+        <header class="top" role="header">
+            <div id = "navigation" class="container">
+                <a href="/" class="navbar-brand pull-left">
+                    LRN
+                </a>
+                <nav class="navbar-collapse collapse" role="navigation">
+                    <ul class="navbar-nav nav pull-right">
+                        {% if user.is_authenticated %}
+                        <!--<li><form class="navbar-form navbar-left" role="search" method = "get" action = "/search/">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search LRN">
+                                  </div>
+                                <button type="submit" class="btn btn-default">   
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </form>
+                        </li>-->
+                        <li><a href = "/logout/">Logout</a></li>
+                        {% else %}
+                        <li><a href="/register/">Register</a></li>
+                        <li><a href="/login/">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div> 
+            
+        </header>
+                
+        <div class = "middle">
+            <div class = "container">
+            {% block body_block %}{% endblock %}
+            </div>
+        </div>
+        
+            <!-- Site footer -->
+        <div class="bottom">
+            <div class="container">
+            </div>
+        </div>
+    </body>
+</html>

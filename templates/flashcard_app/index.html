@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>LRN</title>
+        <script src="{% static 'js/jquery.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/m-dropdown.min.js' %}"></script>
+        <script src="{% static 'js/m-radio.min.js' %}"></script>
+        <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet">
+        <link href = "{% static 'css/m-styles.min.css' %}"rel="stylesheet">
+        <link href = "{% static 'css/index.css' %}" rel = "stylesheet">
+    </head>
+
+    <body>
+        <header class="top" role="header">
+            <div id = "navigation" class="container">
+                <a href="/" class="navbar-brand pull-left">
+                    LRN
+                </a>
+                <nav class="navbar-collapse collapse" role="navigation">
+                    <ul class="navbar-nav nav pull-right">
+                        <li><a href="/register/">Register</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href = "/logout/">Logout</a></li>
+                        {% else %}
+                        <li><a href="/login/">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div> 
+            
+        </header>
+    
+    <div class="banner">
+        <div class="container">
+            <h1>LRN: A simple study aid</h1>
+            <p>A quick, easy to use flashcard system to help you master any subject</p>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="container">
+            <div class="col-md-9 content">
+                <h2>Use LRN's study tools to study more efficiently anywhere, anytime</h2>
+                <p>Memorization can be a pain.  With LRN, it doesn't have to be.  With our flashcard drill system you'll have the power to conquer any subject, whether it be history or biology.  Signing up is free and always will be.</p>
+                <div class="to-tutorial">
+                    <p><strong>Sign up now to get started:</strong></p>
+                    <a href="/register/" class="m-btn green">Sign Up</a>
+                </div>
+            </div>
+            <div id = "sidebar" class="col-md-3 pull-right">
+            </div>
+        </div>
+    </div>
+        
+    <div class="bottom">
+        <div class="container">
+        </div>
+    </div>
+        
+    </body>

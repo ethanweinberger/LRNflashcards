@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+.antiscroll-wrap {
+    width:350px;
+}
+
+#groups {
+    max-width:400px;
+    max-height: 475px;
+    overflow-y:scroll;
+    padding-right:10px;
+}
+
+.nav a {
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+.groupname {
+    width:275px;
+}
+
+#sidebar {
+    margin-top:15px;
+}
+
+#sidebar .m-btn {
+    margin-top:60px;
+    margin-left:75px;
+    width:300px;
+    height:100px;
+}
+
+#sidebar a {
+    font-family: 'Lato', 'sans-serif';
+    padding-top:35px;
+    font-weight:300;
+    font-size:30px;
+    
+}

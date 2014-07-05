@@ -1,0 +1,62 @@
+{% extends 'flashcard_app/base.html' %}
+
+{% load static %}
+
+{% block head_block %}
+
+<link href = "{% static 'css/results.css' %}" rel="stylesheet">
+<script src = "{% static 'js/results.js' %}"></script>
+
+{% endblock %}
+
+{% block body_block %}
+
+<h1>Results</h1>
+
+<div class = "col-md-6">
+    
+    
+    <h2>Score: {{score}}%</h2>
+    
+    
+    <h3>Cards to review:</h3>
+    <div class = "antiscroll-wrap">
+        <table class = "table table-bordered table-striped antiscroll-inner">
+
+            <thead>
+
+                <tr>
+
+                    <th>Flashcard</th>
+                    <th>Times wrong</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                    {% for item in answered_incorrectly %}
+
+                    <tr>
+                        <td>{{item}}</td>
+                        <td>{{item.times_wrong}}</td>
+                    </tr>
+
+                    {% endfor %}
+
+            </tbody>
+            </div>
+        </table>
+    </div>
+
+</div>
+
+<div id = "sidebar" class = "col-md-6">
+
+    <a class = "m-btn" href = "/{{user.username}}/flashcards/practice/{{groupname}}/">Retry</a>
+    <a class = "m-btn" href = "/">Home</a>
+
+</div>
+
+{% endblock %}

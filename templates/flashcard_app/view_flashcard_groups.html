@@ -1,0 +1,28 @@
+{% extends 'flashcard_app/base.html' %}
+{% block title %}{{user.username}}'s flashcards{% endblock %}
+{% block head_block %}
+
+<script>
+    $(document).ready(function () {
+        
+        $('.antiscroll-wrap').antiscroll();
+        
+    });
+</script>
+
+{% endblock %}
+
+{% block body_block %}
+    <div class = "antiscroll-wrap">
+        <div class = "antiscroll-inner">
+            <ul>
+            {% for flashcard_group in flashcard_group_list %}
+                <li><a href = "/{{user.username}}/flashcards/view/{{flashcard_group}}">{{flashcard_group}}</a>
+                    <a href = "/{{user.username}}/flashcards/create/{{flashcard_group}}/">Create Card</a>
+                    <a href = "/{{user.username}}/flashcards/practice/{{flashcard_group}}/">Practice</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+{% endblock %}

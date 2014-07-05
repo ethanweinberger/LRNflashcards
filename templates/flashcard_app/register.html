@@ -1,0 +1,36 @@
+{% extends 'flashcard_app/base.html' %}
+
+
+{% load static %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}Register{% endblock %}
+{% block head_block%}
+
+<link href="{% static 'css/register.css' %}"rel="stylesheet">
+<script src = "{% static 'js/register.js' %}"></script>
+
+{% endblock %}
+{% block body_block %}
+
+            <h1>Register</h1>
+
+            <form id = "user_form" method = "post" action = "/register/"
+                enctype = "multipart/form-data">
+
+                {% csrf_token %}
+
+                {% bootstrap_form user_form %}
+                {% buttons %}
+                    <button type="submit" class="m-btn" style="margin-top:-10px">
+                        Submit
+                    </button>
+                {% endbuttons %}
+
+
+            </form>
+
+{% endblock %}

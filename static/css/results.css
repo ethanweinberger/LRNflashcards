@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+}
+
+#sidebar .m-btn {
+    margin-top:60px;
+    margin-left:75px;
+    width:300px;
+    height:100px;
+}
+
+#sidebar a {
+    font-family: 'Lato', 'sans-serif';
+    padding-top:35px;
+    font-weight:300;
+    font-size:30px;
+    
+}
+
+td {
+    width:200px;
+}
+
+tbody {
+    max-height:475px;
+    overflow-y: scroll;
+}

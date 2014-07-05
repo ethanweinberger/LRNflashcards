@@ -1,0 +1,37 @@
+h1 {
+    text-align: center;
+    margin-bottom:25px;
+}
+
+
+#sidebar .m-btn {
+    margin-top:60px;
+    margin-left:75px;
+    width:300px;
+    height:100px;
+}
+
+.antiscroll-wrap {
+    width:350px;
+}
+
+#sidebar a {
+    font-family: 'Lato', 'sans-serif';
+    padding-top:35px;
+    font-weight:300;
+    font-size:20px;
+    
+}
+
+
+
+#flashcards {
+    max-width:400px;
+    max-height: 475px;
+    overflow:scroll;
+}
+
+
+.flashcardname {
+    width:275px;
+}

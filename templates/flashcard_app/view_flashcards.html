@@ -1,0 +1,39 @@
+{% extends 'flashcard_app/base.html' %}
+{% block title %}{{groupname}}{% endblock %}
+{% load static %}
+{% block head_block %}
+
+<link href = "{% static 'css/view_flashcards.css' %}" rel = "stylesheet"/>
+<script src = "{% static 'js/view_flashcards.js' %}"></script>
+
+{% endblock %}
+{% block body_block %}
+
+    
+
+    <div class = "view_cards">
+        
+            <h1>{{groupname}}</h1>
+            
+            <div class = "col-md-6">
+                <h2>Flashcards</h2>
+                <div class = "antiscroll-wrap">
+                    <ul id = "flashcards" class="nav antiscroll-inner">
+                        {% for item in flashcard_list %}
+                        <li><div class = "m-btn-group"><a class = "m-btn flashcardname">{{item}}</a><a href="#" class="m-btn red icn-only delete"><i class="icon-remove icon-white"></i></a></div></li> <!--Added <a> tag for bootstrap -->
+                        {% endfor %}
+                </ul>
+                </div>
+            </div>
+            <div id = "sidebar" class = "col-md-6 center-block">
+                
+                {% if flashcard_list|length > 0 %}
+                <a class = "m-btn" id = "practice" href = "/{{user.username}}/flashcards/practice/{{group}}/front/">Practice {{group.front_side}} to {{group.back_side}}</a>
+                <a class = "m-btn" id = "practice" href = "/{{user.username}}/flashcards/practice/{{group}}/back/">Practice {{group.back_side}} to {{group.front_side}}</a>
+                {% endif %}
+                <a class = "m-btn" href = "/{{user.username}}/flashcards/create/{{group}}/">Add Cards</a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
