@@ -21,6 +21,16 @@ html {
     color: #474747;
     text-decoration: none;
 }
+
+.container {
+    max-width: 970px !important;
+}
+
+.navbar-collapse ul {
+    margin-right: -15px;
+}
+
+
 .top .container {
     padding: 0;
 }

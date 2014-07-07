@@ -24,7 +24,7 @@ function csrfSafeMethod(method) {
 
 $(document).ready(function() {
     
-    
+    $('.antiscroll-wrap').antiscroll();
     var csrftoken = getCookie('csrftoken');
     
     $('.delete').click(function() {

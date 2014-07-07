@@ -11,8 +11,13 @@ h1 {
     height:100px;
 }
 
+.antiscroll-inner {
+  overflow-x: hidden;
+  width: 370px; /** Make 20px larger to extend browser scrollbar outside of wrapper **/
+ }
+
 .antiscroll-wrap {
-    width:350px;
+  width: 350px; /** Size to what you want, but 20px smaller than inner **/
 }
 
 #sidebar a {
@@ -28,7 +33,6 @@ h1 {
 #flashcards {
     max-width:400px;
     max-height: 475px;
-    overflow:scroll;
 }
 
 

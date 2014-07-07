@@ -56,7 +56,7 @@
     var needHScroll = this.inner.get(0).scrollWidth > this.el.width() + (this.y ? scrollbarSize() : 0), 
 	    needVScroll = this.inner.get(0).scrollHeight > this.el.height() + (this.x ? scrollbarSize() : 0);
 
-    if (this.x) {
+    /*if (this.x) {
       if (!this.horizontal && needHScroll) {
         this.horizontal = new Scrollbar.Horizontal(this);
       } else if (this.horizontal && !needHScroll)  {
@@ -65,7 +65,7 @@
       } else if (this.horizontal) {
         this.horizontal.update();
       }
-    }
+    }*/
 
     if (this.y) {
       if (!this.vertical && needVScroll) {
@@ -286,16 +286,16 @@
    * @api private
    */
 
-  Scrollbar.Horizontal = function (pane) {
+  /*Scrollbar.Horizontal = function (pane) {
     this.el = $('<div class="antiscroll-scrollbar antiscroll-scrollbar-horizontal"/>', pane.el);
     Scrollbar.call(this, pane);
-  };
+  };*/
 
   /**
    * Inherits from Scrollbar.
    */
 
-  inherits(Scrollbar.Horizontal, Scrollbar);
+  /*inherits(Scrollbar.Horizontal, Scrollbar);*/
 
   /**
    * Updates size/position of scrollbar.
@@ -303,7 +303,7 @@
    * @api private
    */
 
-  Scrollbar.Horizontal.prototype.update = function () {
+  /*Scrollbar.Horizontal.prototype.update = function () {
     var paneWidth = this.pane.el.width(), 
 	    trackWidth = paneWidth - this.pane.padding * 2,
 		innerEl = this.pane.inner.get(0)
@@ -313,7 +313,7 @@
       .css('left', trackWidth * innerEl.scrollLeft / innerEl.scrollWidth);
 
     return paneWidth < innerEl.scrollWidth;
-  };
+  };*/
 
   /**
    * Called upon drag.
@@ -321,7 +321,7 @@
    * @api private
    */
 
-  Scrollbar.Horizontal.prototype.mousemove = function (ev) {
+  /*Scrollbar.Horizontal.prototype.mousemove = function (ev) {
     var trackWidth = this.pane.el.width() - this.pane.padding * 2, 
 	    pos = ev.pageX - this.startPageX,
 		barWidth = this.el.width(),
@@ -332,14 +332,14 @@
 
     innerEl.scrollLeft = (innerEl.scrollWidth - this.pane.el.width())
       * y / (trackWidth - barWidth);
-  };
+  };*/
 
   /**
    * Called upon container mousewheel.
    *
    * @api private
    */
-
+/*
   Scrollbar.Horizontal.prototype.mousewheel = function (ev, delta, x, y) {
     if ((x < 0 && 0 == this.pane.inner.get(0).scrollLeft) ||
         (x > 0 && (this.innerEl.scrollLeft + Math.ceil(this.pane.el.width())
@@ -347,7 +347,7 @@
       ev.preventDefault();
       return false;
     }
-  };
+  };*/
 
   /**
    * Vertical scrollbar constructor

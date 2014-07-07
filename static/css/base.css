@@ -23,7 +23,6 @@ h1, h2, h3, h4 {
 }
 
 .top .btn {
-    margin-right:-15px;
     border:none;
     background-color: #474747;
     color:#CCC;
@@ -42,19 +41,39 @@ h1, h2, h3, h4 {
     padding: 0 10px;
     background-color: #CCC;
     color: #474747;
+    margin-left:-15px;
     text-decoration: none;
 }
+
+.container-non-responsive {
+  /* Margin/padding copied from Bootstrap */
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #009b9b;
+  min-height: 665px;
+  margin-top: -20px;
+  padding-top:20px;
+  /* Set width to your desired site width */
+  width: 970px;
+}
+
+.navbar-collapse ul {
+    margin-right: -30px;
+}
+
+.container {
+    width:970px !important;
+}
+
 .top .container {
-    padding: 0;
+    padding-bottom: 20px;
 }
 
 .middle {
     background-color:#373737;
-}
-
-.middle .container {
-    background-color: #009b9b;
-    min-height: 665px;
 }
 
 .navbar-nav li a {

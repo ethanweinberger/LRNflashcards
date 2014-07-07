@@ -17,7 +17,7 @@ def index(request):
     
     #Redirects the user to his home page if logged in
     if request.user.is_authenticated():
-        print request.user
+        print (request.user)
         return HttpResponseRedirect('/' + request.user.username + '/home/')
         
     #If not logged in, user will see the index page
@@ -59,7 +59,7 @@ def register(request):
                 
                 return HttpResponseRedirect('/register_redirect/')
         else:
-            print user_form.errors #If the form was filled out improperly, the errors will be printed
+            print (user_form.errors) #If the form was filled out improperly, the errors will be printed
     else:
         #If the request was not POST, then the user is looking for a blank form
         user_form = UserForm()
@@ -115,7 +115,7 @@ def create_flashcard_group(request, username):
             
             return HttpResponseRedirect("/" + request.user.username + "/home/")
         else:
-            print flashcard_group_form.errors
+            print (flashcard_group_form.errors)
     #If request is a GET, just render a blank form
     else: 
         flashcard_group_form = FlashcardGroupForm()
@@ -145,13 +145,13 @@ def create_flashcard(request, username, groupname):
                 flashcard.save()
 
         else:
-            print flashcard_form.errors
+            print (flashcard_form.errors)
     else:
         current_user = request.user #Grabs the current user from Django
         flashcard_form = FlashcardForm()
         
     group = FlashcardGroup.objects.get(name=groupname, user = current_user)
-    print group.front_side, group.back_side
+    print (group.front_side, group.back_side)
     return render_to_response('flashcard_app/create_flashcard.html', {'flashcard_form': flashcard_form, 'groupname': groupname, 'failed': failed, 'group' : group}, context)
 
 @login_required   
@@ -223,10 +223,10 @@ def check_flashcard(request):
                 except:
                     try:
                         f = Flashcard.objects.get(frontside = question, backside = true_back, group = group)
-                    except Exception, err:
-                        print Exception, err
+                    except (Exception, err):
+                        print (Exception, err)
 
-                    print "got here"
+                    print ("got here")
                     f.times_to_repeat += 2
                     f.times_wrong += 1
                     f.save()
@@ -239,10 +239,10 @@ def check_flashcard(request):
                 except:
                     try:
                         f = Flashcard.objects.get(frontside = true_back, backside = question, group = group)
-                    except Exception, err:
-                        print Exception, err
+                    except (Exception, err):
+                        print (Exception, err)
 
-                    print "got here"
+                    print ("got here")
                     f.times_to_repeat += 2
                     f.times_wrong += 1
                     f.save()
@@ -262,8 +262,8 @@ def generate_flashcard(request, username, groupname, side):
     
         try:
             used_card = Flashcard.objects.get(frontside = request.POST['question'], group = current_group)
-        except Exception, err:
-            print Exception, err
+        except (Exception, err):
+            print (Exception, err)
             
     elif side == 'back':
         
@@ -271,8 +271,8 @@ def generate_flashcard(request, username, groupname, side):
         #roles need to be reversed
         try:
             used_card = Flashcard.objects.get(backside = request.POST['question'], group = current_group)
-        except Exception, err:
-            print Exception, err
+        except (Exception, err):
+            print (Exception, err)
 
     result = request.POST['result']    
 
@@ -289,21 +289,21 @@ def generate_flashcard(request, username, groupname, side):
     flashcard_list_length = Flashcard.objects.filter(group=current_group, active = True).count()
 
     if Flashcard.objects.filter(active = True, group = current_group).count() > 0:
-        print Flashcard.objects.filter(active = True, group = current_group)
+        print (Flashcard.objects.filter(active = True, group = current_group))
         rand_card_index = randint(0,flashcard_list_length-1) #Picks a random number in the range of possible indexes
         
         my_card = active_cards[rand_card_index] #Saves the card in a variable
-        print 'got here'
+        print ('got here')
         return render_to_response('flashcard_app/flashcard.html', {'my_card':my_card, 'side': side}, context)
     
     
     else:
         inactive_cards = Flashcard.objects.filter(group = current_group, active = False)
-        print "got here"
+        print ("got here")
         for item in inactive_cards:
             item.active = True
             item.save()
-        print "got here 2"
+        print ("got here 2")
         return HttpResponse("Drill finished!")
     return HttpResponse("ERROR")
 

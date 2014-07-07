@@ -6,14 +6,18 @@ h2 {
     margin-bottom: 25px;
 }
 
+.antiscroll-inner {
+  overflow-x: hidden;
+  width: 370px; /** Make 20px larger to extend browser scrollbar outside of wrapper **/
+ }
+
 .antiscroll-wrap {
-    width:350px;
+  width: 350px; /** Size to what you want, but 20px smaller than inner **/
 }
 
 #groups {
     max-width:400px;
     max-height: 475px;
-    overflow-y:scroll;
     padding-right:10px;
 }
 
@@ -44,3 +48,4 @@ h2 {
     font-size:30px;
     
 }
+
